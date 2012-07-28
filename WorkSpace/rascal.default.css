@@ -1,0 +1,43 @@
+/*rascal.default.css
+**Created By RexLee
+**v 1.0.0
+*/
+
+.rascal {
+	/*Unchangable*/
+	z-index: 3;
+	position: absolute;
+	/*Input UI data*/
+	margin:0px 0px 0px 0px;
+	left: 56px;
+	top: 36px;
+	width: 256px;/*the width of box*/
+	height: 139px;/*the height of box*/
+	border: #333333 solid 1px;
+	border-bottom: #333333 solid 2px;
+}
+.bar {
+/*	position: absolute;*/
+	z-index: 1;
+	background: #999900;
+	border: #000000 solid 1px;
+	word-wrap:break-word;
+	word-break:nomal;
+	text-align:center;
+}
+.tag {
+/*	position: absolute;*/
+	z-index: 2;
+	text-align:center;
+	color:black;/*color of tag*/
+}
+.label {
+/*	position: absolute;*/
+	z-index: 2;
+	margin:0px 0px 0px 0px;
+	word-wrap:break-word;
+	word-break:nomal;
+	color:black;/*color of label*/
+	text-align:center;
+
+}

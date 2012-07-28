@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+.p {
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	border:/*#FF0000 solid*/ 1px;
+	z-index: 2;
+}
+

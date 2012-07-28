@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rascal_demo_v 1.0.1</title>
+<link rel="stylesheet" href="rascal.default.css" />
+<style type="text/css">
+#lijun1 {
+	position: absolute;
+	left: 74px;
+	top: 40px;
+	width: 427px;
+	height: 236px;
+	z-index: 1;
+}
+</style>
+<script type="text/javascript" src="rascal.core.js"></script>
+</head>
+
+<body>
+<div id="lijun1"></div>
+</body>
+</html>
+<script type="text/javascript">
+setting.tag=false;
+setting.bar_color="yellow";
+setting.rascal_data1="lijun0";//定义变量名
+setting.rascal_data2="lijun2";//定义变量名
+rac1=rascal;
+rac1(lijun1);
+lijun0=Array(Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random());//tags
+lijun2=Array("1","2","3","4","5","8","6","7","8","9","10","11","12","13","李俊");//labels
+rascal.init();//Init rascal
+
+window.setInterval(function(){
+		window.location.href="动态支持测试.html";
+	},1000);
+
+</script>
