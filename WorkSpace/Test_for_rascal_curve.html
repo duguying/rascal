@@ -3,16 +3,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>JS测试文档</title>
-<link href="rascal_curve.point.css" rel="stylesheet" />
+<link href="rascal.curve.point.css" rel="stylesheet" />
 <script type="text/javascript" src="rascal.curve.js"></script>
 <style type="text/css">
-#box {
+#chart {
 	position: absolute;
 	left: 17px;
 	top: 17px;
-	width: 468px;
-	height: 350px;
+	width: 441px;
+	height: 348px;
 	z-index: 1;
+	border: #0099CC solid 1px;
+}
+#box2 {
+	position: absolute;
+	left: 490px;
+	top: 15px;
+	width: 474px;
+	height: 350px;
+	z-index: 2;
 	border: #0099CC solid 1px;
 }
 </style>
@@ -20,15 +29,21 @@
 
 <body>
 
-<div id="box"></div>
+<div id="chart"></div>
+<div id="box2"></div>
 </body>
 </html>
 <script type="text/javascript">
+setting.box_by_id="chart";
 setting.point_color="blue";
 setting.arrname="lijun";
 lijun=Array(1,20,300,40,55,16,70,8,90,100,45,67,2,90,234,56,0,350,5,89,34,300,12);
-curve();
-
-
-
+var a=curve();
+delete a;
+///////////////////////////
+setting.box_by_id="box2";
+setting.point_color="red";
+lijun=Array(1,20,300,40,55,16,70,8,90,100,45,67,2,90,234,56,0,350,5,89,34,300,12);
+var b=curve();
+delete b;
 </script>

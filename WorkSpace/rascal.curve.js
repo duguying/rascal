@@ -1,10 +1,10 @@
 // JavaScript Document
 // Created By RexLee
 inf=function(){
-	  inf.x=document.getElementById("box").offsetLeft;
-	  inf.y=document.getElementById("box").offsetTop;
-	  inf.w=document.getElementById("box").offsetWidth;
-	  inf.h=document.getElementById("box").offsetHeight;
+	  inf.x=document.getElementById(setting.box_by_id).offsetLeft;
+	  inf.y=document.getElementById(setting.box_by_id).offsetTop;
+	  inf.w=document.getElementById(setting.box_by_id).offsetWidth;
+	  inf.h=document.getElementById(setting.box_by_id).offsetHeight;
 	  inf.line_start=0;
 	  inf.line_l=0;
 	  inf.line_start_x;
@@ -15,30 +15,35 @@ inf=function(){
 	setting={};
 	setting.arrname="arr";
 	setting.point_color="red";
+	setting.box_by_id="rascal_box";
+	setting.p;
 	})();
 
 curve=function(){
+	setting.p=setting.box_by_id;
 	curve.create=function(p,x,y){
 	  var c_point=document.createElement("div");
 	  c_point.setAttribute("class","p");
-	  c_point.setAttribute("id","p"+p)
+	  c_point.setAttribute("id",setting.p+p)
 	  c_point.style.left=x+"px";
 	  c_point.style.top=y+"px";
-	  document.getElementById("box").appendChild(c_point);
+	  document.getElementById(setting.box_by_id).appendChild(c_point);
 	}
 	
 	curve.move=function(p,x,y,l){//l为点型，即为点的长度
-	  m_point=document.getElementById("p"+Math.floor(p));//字母f不能传进来
+	  m_point=document.getElementById(setting.p+Math.floor(p));//字母f不能传进来
 	  m_point.style.borderStyle="solid";
 	  m_point.style.borderColor=setting.point_color;
 	  m_point.style.borderWidth="1px";
 	  try{
-		  if(!(x==inf.line_start_x)){
-			  m_point.style.height=inf.line_l+"px";
-			  };
 		  if(x==inf.line_end_x){
-				m_point.style.height=inf.line_l*0+"px";
-			  };
+			  m_point.style.height=inf.line_l*0+"px";
+			  m_point.style.borderStyle="hidden";
+		  }else if(x==inf.line_start_x){
+			  m_point.style.borderStyle="hidden";
+		  }else{
+			  m_point.style.height=inf.line_l+"px";
+			};
 		  }catch(e){};
 	  m_point.style.left=x+"px";
 	  m_point.style.top=y+"px";
@@ -60,12 +65,12 @@ curve=function(){
 		var dy=y2-y1;
 		var ddy=dy/dx;
 		x1=Math.floor(x1);
-		x2=Math.floor(x2);//次出将x取整，不然40行无法抓取线段末尾点
+		x2=Math.floor(x2);//次出将x取整，不然39行无法抓取线段末尾点
 		inf.line_l=Math.abs(ddy);
 		inf.line_start_x=x1;
 		inf.line_end_x=x2;
 		for(var i=0;i<=dx;i++){
-			try{curve.move(inf.line_start+i,x1+i,y1+i*ddy-fix_y);}catch(e){/*inf.line_end_x=i;alert(e+"  "+i);*/};//会溢出报错
+			try{curve.move(inf.line_start+i,x1+i,y1+i*ddy-fix_y);}catch(e){};//会报错
 			};
 		}
 
