@@ -13,13 +13,15 @@ inf=function(){
 	
 (function(){
 	setting={};
-	setting.arrname="arr";
+	setting.data="";
 	setting.point_color="red";
-	setting.box_by_id="rascal_box";
+	setting.box_by_id="";
 	setting.p;
 	})();
 
 curve=function(){
+	if(setting.box_by_id==""){alert('you\'ve not set "setting.data".');return false;}
+	if(setting.data==""){alert('you\'ve not set "setting.data".');return false;}
 	setting.p=setting.box_by_id;
 	curve.create=function(p,x,y){
 	  var c_point=document.createElement("div");
@@ -75,7 +77,7 @@ curve=function(){
 		}
 
 	curve.draw=function(){
-		var arr=eval(setting.arrname);
+		var arr=eval(setting.data);
 		var len=arr.length;
 		var d=inf.w/(len-1);
 		for(var i=0;i<len;i++){
